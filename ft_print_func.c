@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_func.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maialen <maialen@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mmurgia- <mmurgia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 13:50:40 by mmurgia-          #+#    #+#             */
-/*   Updated: 2022/05/31 13:23:54 by maialen          ###   ########.fr       */
+/*   Updated: 2022/06/07 11:39:47 by mmurgia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	ft_print_str(char *str)
 	}
 	while (str[i])
 	{
-		string += ft_print_char(str[i]);
+		string += write(1, &str[i], 1);
 		i++;
 	}
 	return (string);
@@ -46,16 +46,16 @@ int	ft_print_num(int n)
 
 	number = 0;
 	if (n == -2147483648)
-		return (write(1, "-2147483648", 11));
+		return (ft_print_str("-2147483648"));
 	if (n < 0)
 	{
 		number += write (1, "-", 1);
-		n = -n;
+		n *= -1;
 	}
 	if (n >= 10)
 		number += ft_print_num(n / 10);
 	n = n % 10;
 	if (n < 10)
-		number += ft_print_char(n + '0');
+		number += ft_print_char(n + 48);
 	return (number);
 }

@@ -6,7 +6,7 @@
 /*   By: mmurgia- <mmurgia-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/04 13:50:40 by mmurgia-          #+#    #+#             */
-/*   Updated: 2022/05/27 10:57:35 by mmurgia-         ###   ########.fr       */
+/*   Updated: 2022/06/07 11:39:44 by mmurgia-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,6 @@ int	ft_print_unsigned_num(unsigned int n)
 		dest += ft_print_unsigned_num(n / 10);
 	n = n % 10;
 	if (n < 10)
-		dest += ft_print_char(n + 48);
+		dest += ft_print_char(n + '0');
 	return (dest);
 }
